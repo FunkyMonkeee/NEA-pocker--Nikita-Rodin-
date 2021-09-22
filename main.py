@@ -2,15 +2,14 @@ from random import shuffle
 
 
 class Table:
-    def __init__(self, number_of_players=3, number_of_ai=0, number_of_humans=3, min_bet = 10):
+    def __init__(self, number_of_players=3, number_of_ai=0, number_of_humans=3, min_bet=10):
         self.side_pots = [0 for i in range(number_of_players)]
+        self.min_sum = 0
         self.table_deck = Deck()
         self.number_of_seats = number_of_players
         self.combination_value = []
         for player in range(number_of_players):
             self.combination_value.append(-1)
-        for player in range(number_of_players):
-            self.side_pots.append(0)
         self.middle_of_the_table = []
         self.suits_of_the_table = []
         self.values_of_the_table = []
@@ -18,9 +17,9 @@ class Table:
         self.small_blind = 0
         self.min_bet = min_bet
         self.big_blind_amount = min_bet
-        self.side_pots = []
         for i in range(number_of_ai):
             self.players.append(AI())
+
         for i in range(number_of_humans):
             self.players.append(Human())
 
@@ -134,7 +133,7 @@ class Table:
         pair = self.check_pair(player)
         triple = self.check_triple(player)
         if pair and triple:
-            return [6]
+            return [6, 0]
 
     def four_of_a_kind(self, player):
         """checks for four of a kind cobination"""
@@ -174,7 +173,7 @@ class Table:
             self.middle_of_the_table.append(card)
             self.suits_of_the_table.append(card.get_suit())
             self.values_of_the_table.append(card.get_value())
-        self.betting(self.players)
+        self.betting()
 
     def turn(self):
         """puts one card in the middle of the table and adds value and suit to separate lists for access of bots"""
@@ -182,46 +181,55 @@ class Table:
         self.middle_of_the_table.append(card)
         self.suits_of_the_table.append(card.get_suit())
         self.values_of_the_table.append(card.get_value())
-        self.betting(self.players)
+        self.betting()
 
     def river(self):
         card = self.table_deck.deal_a_card()
         self.middle_of_the_table.append(card)
         self.suits_of_the_table.append(card.get_suit())
         self.values_of_the_table.append(card.get_value())
-        self.betting(self.players)
+        self.betting()
         self.distribute_a_win()
 
-    def betting(self, player_list, pre_flop = False):
+    def betting(self):
         """makes a round of betting among all of the players"""
-        if pre_flop:
-            player = 2
-        else:
-            player = 0
-        min_sum = 0
-        while True:
-            if player_list[player].fold_state or player_list[player].all_in_state:
-                player += 1
+        raise_maker = -1
+        player_num = 0
+        while player_num < self.number_of_seats:
+            if self.players[player_num].fold_state or self.players[player_num].all_in_state or player_num == raise_maker:
+                player_num += 1
             else:
-                response = player_list[player].place_a_bet(min_sum, self, player)
-                if response == min_sum:
-                    player += 1
-                    self.side_pots[player] += response
-                elif not response:
-                    player_list[player].foldstate = True
-                    player_list.pop(player)
-                elif response > min_sum:
-                    player = 0
-                    min_sum = response
-                    self.side_pots[player] += response
-                elif response < min_sum:
-                    self.side_pots[player] += response
-                    player_list[player].all_in_state = True
+                resp = self.players[player_num].place_a_bet(self.min_sum, self, player_num)
+                if resp is False:
+                    #fold event
+                    player_num += 1
+                elif resp > self.min_sum:
+                    #raise event
+                    raise_maker = player_num
+                    self.min_sum = resp
+                    add = resp + self.side_pots[player_num]
+                    self.side_pots[player_num] = add
+                    if player_num != 0:
+                        player_num = 0
+                    else:
+                        player_num += 1
+                elif self.side_pots[player_num] + resp < self.min_sum and self.players[player_num].budget == 0:
+                    #all_in_event
+                    add = resp + self.side_pots[player_num]
+                    self.side_pots[player_num] = add
+                    player_num += 1
+                elif self.side_pots[player_num] + resp == self.min_sum:
+                    #call_event
+                    add = resp + self.side_pots[player_num]
+                    self.side_pots[player_num] = add
+                    player_num += 1
+
+
 
     def pre_flop(self):
         """deals cards and makes preflop bets"""
         self.deal_cards()
-        self.betting(self.players, pre_flop=True)
+        self.betting()
 
     def check_win(self):
         """after river betting determines a winner"""
@@ -235,12 +243,14 @@ class Table:
 
     def distribute_a_win(self):
         """after a round of poker it distributes win to players"""
+        #create a list of winners
         winner = 0
         winner_comb = -1
         winner_high_card = -1
         win_list = self.check_win()
         copy_of_bets = self.side_pots[:]
         while sum(self.side_pots) > 0:
+            print(self.side_pots)
             winner_num = 1
             for obj in range(len(win_list)):
                 if win_list[obj][0] > winner_comb:
@@ -271,8 +281,8 @@ class Table:
             win_list[winner] = [-1, -1]
 
     def kicker(self, player_1, player_2):
-        max_1 = max(player_1.ret_hand())
-        max_2 = max(player_2.ret_hand())
+        max_1 = max([card_val.get_value() for card_val in player_1.ret_hand()])
+        max_2 = max([card_val.get_value() for card_val in player_2.ret_hand()])
         if max_1 == max_2:
             return 0
         if max_1 > max_2:
@@ -367,25 +377,32 @@ class Human(Player):
     def place_a_bet(self, money_to_play, table, player_num):
         choice = input(f"""      Money to play: {money_to_play}
         You have: {self.budget} chips
+        hand: {[[card_val.get_value(), card_val.get_suit()] for card_val in self.ret_hand()]}
+        table: {table.suits_of_the_table, table.values_of_the_table}
+        your side_pot: {table.side_pots[player_num]}
+        your number = {player_num}
         1) fold
         2) check/call
         3) raise/bet
         4) all in
         """)
         if choice == "1":
+            self.fold_state = True
             return False
         if choice == "2":
-            self.budget -= money_to_play - table.side_pots[player_num]
+            self.budget = self.budget - (money_to_play - table.side_pots[player_num])
+            if self.budget <= 0:
+                self.all_in_state = True
             return money_to_play - table.side_pots[player_num]
         if choice == "3":
             rais_e = int(input('enter the amount you want to raise'))
             self.budget -= (money_to_play - table.side_pots[player_num] + rais_e)
             return money_to_play - table.side_pots[player_num] + rais_e
         if choice == '4':
+            self.all_in_state = True
             ret = self.budget
             self.budget = 0
             return ret
-
 
     def show_hand(self):
         hand = []
@@ -400,9 +417,11 @@ class Human(Player):
 
 
 class AI(Player):
-    def __init__(self, budget=1000):
-        Player.__init__(self, budget=1000)
-
+    def __init__(self, budget=1000, agressiveness=5, riskiness=5, bluffing_frequency=5):
+        Player.__init__(self, budget)
+        self.agressiveness = agressiveness
+        self.riskiness = riskiness
+        self.bluffing_frequency = bluffing_frequency
     def place_a_bet(self):
         pass
 
@@ -410,5 +429,6 @@ class AI(Player):
 def main():
     main_table = Table()
     main_table.one_game()
+    print([player.budget for player in main_table.players])
 
 main()

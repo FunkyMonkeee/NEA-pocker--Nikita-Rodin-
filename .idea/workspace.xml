@@ -134,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629650657041</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="my starting point">
+      <created>1631696747740</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1631696747740</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -147,32 +154,49 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="my starting point" />
     <option name="LAST_COMMIT_MESSAGE" value="my starting point" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1659" height="186" key="GridCell.Tab.0.bottom" timestamp="1631631845526">
+    <state width="1659" height="294" key="GridCell.Tab.0.bottom" timestamp="1632302047024">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="186" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1631631845526" />
+    <state width="1659" height="294" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1632302047024" />
     <state width="1659" height="260" key="GridCell.Tab.0.bottom/0.25.1680.971@0.25.1680.971" timestamp="1625213685594" />
-    <state width="1659" height="186" key="GridCell.Tab.0.center" timestamp="1631631845525">
+    <state width="1659" height="294" key="GridCell.Tab.0.center" timestamp="1632302047022">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="186" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1631631845525" />
+    <state width="1659" height="294" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1632302047022" />
     <state width="1659" height="260" key="GridCell.Tab.0.center/0.25.1680.971@0.25.1680.971" timestamp="1625213685593" />
-    <state width="1659" height="186" key="GridCell.Tab.0.left" timestamp="1631631845524">
+    <state width="1659" height="294" key="GridCell.Tab.0.left" timestamp="1632302047022">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="186" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1631631845524" />
+    <state width="1659" height="294" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1632302047022" />
     <state width="1659" height="260" key="GridCell.Tab.0.left/0.25.1680.971@0.25.1680.971" timestamp="1625213685592" />
-    <state width="1659" height="186" key="GridCell.Tab.0.right" timestamp="1631631845526">
+    <state width="1659" height="294" key="GridCell.Tab.0.right" timestamp="1632302047023">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="186" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1631631845526" />
+    <state width="1659" height="294" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1632302047023" />
     <state width="1659" height="260" key="GridCell.Tab.0.right/0.25.1680.971@0.25.1680.971" timestamp="1625213685593" />
+    <state width="1659" height="325" key="GridCell.Tab.1.bottom" timestamp="1632234650259">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1659" height="325" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1632234650259" />
+    <state width="1659" height="325" key="GridCell.Tab.1.center" timestamp="1632234650259">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1659" height="325" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1632234650259" />
+    <state width="1659" height="325" key="GridCell.Tab.1.left" timestamp="1632234650258">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1659" height="325" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1632234650258" />
+    <state width="1659" height="325" key="GridCell.Tab.1.right" timestamp="1632234650259">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1659" height="325" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1632234650259" />
     <state width="500" height="400" key="SwitcherDM" timestamp="1625213797059">
       <screen x="0" y="25" width="1680" height="971" />
     </state>
