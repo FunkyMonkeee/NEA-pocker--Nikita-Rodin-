@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dbaba95-0cf9-4fb2-90f8-9622ba1648dd" name="Default Changelist" comment="my starting point">
+    <list default="true" id="5dbaba95-0cf9-4fb2-90f8-9622ba1648dd" name="Default Changelist" comment="Should work, but I need to rework win redistribution">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -141,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631696747740</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Should work, but I need to rework win redistribution">
+      <created>1632302456396</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1632302456396</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -158,52 +165,78 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="my starting point" />
-    <option name="LAST_COMMIT_MESSAGE" value="my starting point" />
+    <MESSAGE value="Should work, but I need to rework win redistribution" />
+    <option name="LAST_COMMIT_MESSAGE" value="Should work, but I need to rework win redistribution" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1659" height="294" key="GridCell.Tab.0.bottom" timestamp="1632302047024">
+    <state width="1659" height="222" key="GridCell.Tab.0.bottom" timestamp="1633943151259">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="294" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1632302047024" />
+    <state width="1659" height="222" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1633943151259" />
     <state width="1659" height="260" key="GridCell.Tab.0.bottom/0.25.1680.971@0.25.1680.971" timestamp="1625213685594" />
-    <state width="1659" height="294" key="GridCell.Tab.0.center" timestamp="1632302047022">
+    <state width="1659" height="222" key="GridCell.Tab.0.center" timestamp="1633943151258">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="294" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1632302047022" />
+    <state width="1659" height="222" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1633943151258" />
     <state width="1659" height="260" key="GridCell.Tab.0.center/0.25.1680.971@0.25.1680.971" timestamp="1625213685593" />
-    <state width="1659" height="294" key="GridCell.Tab.0.left" timestamp="1632302047022">
+    <state width="1659" height="222" key="GridCell.Tab.0.left" timestamp="1633943151257">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="294" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1632302047022" />
+    <state width="1659" height="222" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1633943151257" />
     <state width="1659" height="260" key="GridCell.Tab.0.left/0.25.1680.971@0.25.1680.971" timestamp="1625213685592" />
-    <state width="1659" height="294" key="GridCell.Tab.0.right" timestamp="1632302047023">
+    <state width="1659" height="222" key="GridCell.Tab.0.right" timestamp="1633943151258">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="294" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1632302047023" />
+    <state width="1659" height="222" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1633943151258" />
     <state width="1659" height="260" key="GridCell.Tab.0.right/0.25.1680.971@0.25.1680.971" timestamp="1625213685593" />
-    <state width="1659" height="325" key="GridCell.Tab.1.bottom" timestamp="1632234650259">
+    <state width="1659" height="222" key="GridCell.Tab.1.bottom" timestamp="1633942894817">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="325" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1632234650259" />
-    <state width="1659" height="325" key="GridCell.Tab.1.center" timestamp="1632234650259">
+    <state width="1659" height="222" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1633942894817" />
+    <state width="1659" height="222" key="GridCell.Tab.1.center" timestamp="1633942894816">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="325" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1632234650259" />
-    <state width="1659" height="325" key="GridCell.Tab.1.left" timestamp="1632234650258">
+    <state width="1659" height="222" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1633942894816" />
+    <state width="1659" height="222" key="GridCell.Tab.1.left" timestamp="1633942894816">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="325" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1632234650258" />
-    <state width="1659" height="325" key="GridCell.Tab.1.right" timestamp="1632234650259">
+    <state width="1659" height="222" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1633942894816" />
+    <state width="1659" height="222" key="GridCell.Tab.1.right" timestamp="1633942894817">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="325" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1632234650259" />
+    <state width="1659" height="222" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1633942894817" />
     <state width="500" height="400" key="SwitcherDM" timestamp="1625213797059">
       <screen x="0" y="25" width="1680" height="971" />
     </state>
     <state width="500" height="400" key="SwitcherDM/0.25.1680.971@0.25.1680.971" timestamp="1625213797059" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1630667051708">
+    <state x="440" y="262" key="Vcs.Push.Dialog.v2" timestamp="1633943216728">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1630667051708" />
+    <state x="440" y="262" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1633943216728" />
+    <state width="840" height="525" key="XDebugger.FullValuePopup" timestamp="1633940862725">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="840" height="525" key="XDebugger.FullValuePopup/0.0.1680.1050@0.0.1680.1050" timestamp="1633940862725" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1633815397774">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1633815397774" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="self.side_pots" language="Python" />
+        <watch expression="player_num" language="Python" />
+        <watch expression="resp" language="Python" />
+        <watch expression="self.possibility_of_winning" language="Python" />
+        <watch expression="self.min_sum" language="Python" />
+        <watch expression="self.round_raises" language="Python" />
+        <watch expression="abs_winner" language="Python" />
+        <watch expression="self.players" language="Python" />
+        <watch expression="self.data" language="Python" />
+        <watch expression="dict_of_budgets" language="Python" />
+        <watch expression="table" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
